@@ -10,11 +10,17 @@ pipeline{
             }
         }
         stage("Build App"){
+            when {
+                branch main
+            }
             steps{
                 bat 'dotnet build --no-restore'
             }
         }
         stage("Test App"){
+            when {
+                branch main
+            }
             steps{
                 bat 'dotnet test --no-build --verbosity normal'
             }
