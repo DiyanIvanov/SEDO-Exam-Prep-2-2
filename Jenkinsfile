@@ -2,6 +2,9 @@ pipeline{
     agent any
     stages{
         stage("Restore Dependancies"){
+            when {
+                branch main
+            }
             steps{
                 bat 'dotnet restore'
             }
